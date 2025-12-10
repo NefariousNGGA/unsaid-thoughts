@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background-primary/95 backdrop-blur-sm">
       <div className={cn("flex items-center justify-between py-4", "max-w-4xl mx-auto px-4")}>
-        {/* Logo */}
+        {/* Logo - Same on all devices */}
         <Link 
           href="/" 
           className="flex items-center gap-2 group"
@@ -21,11 +21,8 @@ export default function Navbar() {
           <div className="p-2 rounded-lg bg-background-card border border-border group-hover:border-accent-hover transition-colors">
             <Home size={20} className="text-text-secondary group-hover:text-text-primary transition-colors" />
           </div>
-          <span className="text-xl font-semibold tracking-tight hidden sm:inline">
+          <span className="text-xl font-semibold tracking-tight">
             {SITE_CONFIG.name}
-          </span>
-          <span className="text-xl font-semibold tracking-tight sm:hidden">
-            UT
           </span>
         </Link>
 
