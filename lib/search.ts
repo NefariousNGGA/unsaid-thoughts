@@ -32,14 +32,17 @@ export function searchPosts(query: string): Post[] {
   return results.map(result => result.item);
 }
 
-// ADD THIS FUNCTION:
 export function getSearchSuggestions(query: string, limit: number = 5): string[] {
   const posts = getAllPosts();
   const suggestions = new Set<string>();
   
+  if (query.length < 2) return [];
+  
+  const queryLower = query.toLowerCase();
+  
   // Add matching titles
   posts.forEach(post => {
-    if (post.title.toLowerCase().includes(query.toLowerCase())) {
+    if (post.title.toLowerCase().includes(queryLower)) {
       suggestions.add(post.title);
     }
   });
@@ -47,7 +50,7 @@ export function getSearchSuggestions(query: string, limit: number = 5): string[]
   // Add matching tags
   posts.forEach(post => {
     post.tags.forEach(tag => {
-      if (tag.toLowerCase().includes(query.toLowerCase())) {
+      if (tag.toLowerCase().includes(queryLower)) {
         suggestions.add(tag);
       }
     });
@@ -57,8 +60,8 @@ export function getSearchSuggestions(query: string, limit: number = 5): string[]
   posts.forEach(post => {
     const words = post.excerpt.toLowerCase().split(/\s+/);
     words.forEach(word => {
-      if (word.includes(query.toLowerCase()) && word.length > 3) {
-        suggestions.add(word);
+      if (word.includes(queryLower) && word.length > 3) {
+        suggestions.add(word.charAt(0).toUpperCase() + word.slice(1));
       }
     });
   });
