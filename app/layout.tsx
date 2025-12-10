@@ -13,11 +13,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://unsaid-thoughts.vercel.app'),
   title: {
     default: SITE_CONFIG.name,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
+  keywords: ['thoughts', 'blog', 'minimalist', 'digital', 'philosophy'],
+  authors: [{ name: SITE_CONFIG.author }],
+  creator: SITE_CONFIG.author,
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -25,6 +29,21 @@ export const metadata: Metadata = {
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
     siteName: SITE_CONFIG.name,
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: SITE_CONFIG.name,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    images: ['/og-image.png'],
+    creator: '@username',
   },
   robots: {
     index: true,
@@ -37,14 +56,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  twitter: {
-    title: SITE_CONFIG.name,
-    card: 'summary_large_image',
-    description: SITE_CONFIG.description,
-  },
   icons: {
     icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -54,6 +70,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
         className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
