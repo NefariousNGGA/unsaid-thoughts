@@ -127,7 +127,7 @@ export function getRelativeTime(date: Date | string): string {
   return `${Math.floor(diffDays / 365)} years ago`;
 }
 
-// Hook for debounce (if needed later)
+// Hook for debounce
 export function useDebounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number
