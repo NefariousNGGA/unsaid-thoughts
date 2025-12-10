@@ -14,7 +14,7 @@ export default function AdminPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_POST_SECRET}` // 👈 must match your Vercel env var
+          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_POST_SECRET}` // must match your Vercel env var
         },
         body: JSON.stringify({
           title,
@@ -25,7 +25,7 @@ export default function AdminPage() {
 
       const result = await res.json();
       if (result.success) {
-        setStatus("✅ Posted successfully!");
+        setStatus(`✅ Posted successfully! Slug: ${result.slug}`);
         setTitle("");
         setContent("");
         setTags("");
@@ -73,4 +73,4 @@ export default function AdminPage() {
       {status && <p className="mt-3 text-sm">{status}</p>}
     </div>
   );
-          }
+}
