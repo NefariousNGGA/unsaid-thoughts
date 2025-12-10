@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Source_Serif_Pro } from 'next/font/google';
+import { Inter, JetBrains_Mono, Inter } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import ThemeProvider from '@/components/ThemeProvider';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
-const sourceSerifPro = Source_Serif_Pro({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-source-serif-pro',
   weight: ['400', '600'],
@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${sourceSerifPro.variable} font-sans antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} ${jetbrainsMono.variable} ${inter.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider>
           <Navbar />
