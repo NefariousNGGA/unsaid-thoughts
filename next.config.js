@@ -1,9 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'standalone', // Better for Vercel
-  images: {
-    formats: ['image/avif', 'image/webp'],
-  },
-}
+const path = require("path");
 
-module.exports = nextConfig
+const nextConfig = {
+  output: "standalone", // Better for Vercel
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
+  webpack: (config) => {
+    config.resolve.alias["@"] = path.resolve(__dirname); // ✅ alias for @/
+    return config;
+  },
+};
+
+module.exports = nextConfig;
