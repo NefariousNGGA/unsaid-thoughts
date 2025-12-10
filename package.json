@@ -24,10 +24,10 @@
   "telegraf": "^4.16.3",
   "@octokit/rest": "^20.0.0",
   "remark-html": "^15.0.2",
-  "typescript": "^5.6.3",        // ✅ move here
-  "@types/node": "^20.11.0",     // ✅ move here
-  "@types/react": "^18.2.0",     // ✅ move here
-  "@types/react-dom": "^18.2.0"  // ✅ move here
+  "typescript": "^5.6.3",
+  "@types/node": "^20.11.0",
+  "@types/react": "^18.2.0",
+  "@types/react-dom": "^18.2.0"
 },
 "devDependencies": {
   "eslint": "^8.57.0",
