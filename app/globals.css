@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-primary: #0a0a0a;
+  --background-secondary: #111111;
+  --text-primary: #e5e5e5;
+  --text-secondary: #a3a3a3;
+}
+
+@layer base {
+  body {
+    @apply bg-background-primary text-text-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  ::selection {
+    @apply bg-accent-hover text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-hover;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-background-card border border-border rounded-lg p-6 hover:border-accent-hover transition-colors;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg border border-border bg-background-card hover:bg-background-secondary hover:border-accent-hover transition-colors inline-flex items-center gap-2;
+  }
+
+  .tag {
+    @apply px-3 py-1 text-sm rounded-full bg-background-secondary border border-border hover:bg-background-primary hover:border-accent-hover transition-colors;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
