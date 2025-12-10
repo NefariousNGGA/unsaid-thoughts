@@ -126,7 +126,6 @@ export default async function PostPage({ params }: PostPageProps) {
                     <div className="flex items-center gap-4">
                       <button
                         className="btn"
-                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       >
                         Back to top ↑
                       </button>
