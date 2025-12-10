@@ -34,8 +34,8 @@ export function slugify(text: string): string {
 
 export function getExcerpt(content: string, length: number = 150): string {
   const plainText = content
-    .replace(/[#*`\[\]]/g, '') // Remove markdown
-    .replace(/\s+/g, ' ')      // Normalize whitespace
+    .replace(/[#*`\[\]]/g, '')
+    .replace(/\s+/g, ' ')
     .trim();
   
   if (plainText.length <= length) return plainText;
@@ -125,18 +125,6 @@ export function getRelativeTime(date: Date | string): string {
   if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
   if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
   return `${Math.floor(diffDays / 365)} years ago`;
-}
-// Debounce function for search
-export function debounce<T extends (...args: any[]) => any>(
-  func: T,
-  wait: number
-): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout;
-  
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
 }
 
 // Hook for debounce (if needed later)
