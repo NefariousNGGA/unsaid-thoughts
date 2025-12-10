@@ -14,7 +14,11 @@
     "gray-matter": "^4.0.3",
     "date-fns": "^3.0.0",
     "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0"
+    "tailwind-merge": "^2.0.0",
+    "lucide-react": "^0.309.0",
+    "fuse.js": "^7.0.0",
+    "remark": "^14.0.3",
+    "remark-html": "^15.0.2"
   },
   "devDependencies": {
     "@types/node": "^20",
